@@ -17,7 +17,7 @@ tableData.forEach((report)=> {
     });
         
     //console.log(cell_list);    
-    var table=document.getElementById("ufo-table");
+    var table=document.getElementById("ufo-body");
     var row=table.insertRow(row_number);
     var cell1=row.insertCell(0);
     var cell2=row.insertCell(1);
@@ -27,7 +27,7 @@ tableData.forEach((report)=> {
     var cell6=row.insertCell(5);
     var cell7=row.insertCell(6);
 
-        //add text the new cells
+        //add text to the new cells
     cell1.innerHTML=cell_list[0];
     cell2.innerHTML=cell_list[1];
     cell3.innerHTML=cell_list[2];
@@ -45,6 +45,7 @@ tableData.forEach((report)=> {
 
 
 function setFilter() {
+    d3.select('tbody').html(' ')
     var inputElement= d3.select('#datetime');
     var inputValue= inputElement.property('value'); 
     var tempArray= tableData.filter(sighting => sighting.datetime === inputValue);
@@ -65,7 +66,7 @@ function setFilter() {
             });
                 
             //console.log(cell_list);    
-            var table=document.getElementById("ufo-table");
+            var table=document.getElementById("ufo-body");
             var row=table.insertRow(row_number);
             var cell1=row.insertCell(0);
             var cell2=row.insertCell(1);
@@ -99,8 +100,5 @@ var button=d3.select("#filter-btn");
 
 
 button.on("click", setFilter);
-
-
-
 
 
